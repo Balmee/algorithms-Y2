@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>Marimo-intro</title>
+    <script type="module" crossorigin src="./assets/index-Cq_ZnpmP.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-BW0IMuFq.js">
+    <link rel="modulepreload" crossorigin href="./assets/hotkeys-uKX61F1_.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-BLUna9fQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Cl9k9ZmS.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-DzliDDTm.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-C8wT63Va.js">
+    <link rel="modulepreload" crossorigin href="./assets/_Uint8Array-BGESiCQL.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-CrRUCOBw.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-D0MtrJOx.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-C1rgT0yh.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-BGmjiNul.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-DeeZ7FnK.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-DN_bIXfG.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-DAnNhy3O.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-COkmyg1v.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-B8cGZzP5.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-C9fstfnp.js">
+    <link rel="modulepreload" crossorigin href="./assets/Combination-D1TsGrBC.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-9PZrU2e0.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CBrDuocE.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-CW2xpJ57.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-CrAQug3q.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-D9lTzMzP.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-CvjcEpZC.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-Bzf3rpev.js">
+    <link rel="modulepreload" crossorigin href="./assets/_getTag-BWqNuuwU.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseIsEqual-Cz9Tt_-E.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-DlWF5OMa.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-C6yE60hi.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFor-Duhs3RiJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-BBX6ug-N.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-Cg4WLWh2.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-pfqq9IdB.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-Bkp4R3bQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-DzyBMRsy.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-D6nhy4FA.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-ClFZlR7U.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-B3BENoUa.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-C0HaHO6a.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BGkTcW3U.js">
+    <link rel="modulepreload" crossorigin href="./assets/toString-DlRqgfqz.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasUnicode-zBEpxwYe.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-CmDXEyIC.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-EAuSVK-5.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-CNj0G_ol.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-CTiSlR1m.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-BmAOeMOK.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-DDa-hVe3.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CAcX026F.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DKNOF5xd.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CI6_zMIl.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BVf1IY4_.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Cq_4nPfh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CVj-_Iiz.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-HGZzCB0y.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-RKnr9SNh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BuhT82Xx.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-0ac7Aukl.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-5JckKRQn.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-Bj40p_Np.js">
+    <link rel="modulepreload" crossorigin href="./assets/_arrayReduce-bZBYsK-u.js">
+    <link rel="modulepreload" crossorigin href="./assets/type-BdyvjzTI.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseProperty-DuoFhI7N.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-6sUe0ZdD.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-BbFlGgjv.js">
+    <link rel="modulepreload" crossorigin href="./assets/toInteger-CDcO32Gx.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CaVvnK_o.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-CwSdzVhm.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-CpvLRFsM.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-C7JBxSzd.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-Czc5z_04.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-RldLPyJs.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-jcHA5geR.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-CF5DtF1E.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-em3gna-v.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-C9_R_vlY.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-DD7JA3RM.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-DHfVoQfl.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-FoXhpyAb.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-DTwIUo40.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-B80Yt1uu.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-DVhvP4lH.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-Dz1jd8Ir.js">
+    <link rel="modulepreload" crossorigin href="./assets/multi-map-CQd4MZr5.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-BEdExd6A.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-CqEd11Di.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-BP4_BZLr.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-DNmjkr65.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-Bm5VLYk2.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-CJMywDNY.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-By2cOynM.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-DRhpWiOq.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-gBVL4NN-.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-jWsqdLn1.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-C1czjtp7.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-Biy2OCfF.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-DmVMvj8M.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-Cp2punaU.js">
+    <link rel="modulepreload" crossorigin href="./assets/katex-AwOI3EvM.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-CHnOtnr3.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-OGVTOU66-CjNLT2C3.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-ueIadUZx.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Dg7UO_Vw.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-CiJW14cR.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-DtnzNVk-.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-Cm_P3BT1.js">
+    <link rel="modulepreload" crossorigin href="./assets/mode-wovPGH9p.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-N-2faAGj.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-B8p715zK.js">
+    <link rel="modulepreload" crossorigin href="./assets/table--_20dwBZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/tabs-Ctk4D03n.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-BJJJOr9W.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-CU-WWxnz.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-DvT0IGDZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-B9CrBoaO.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-DhMN8sxe.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-DhzaK-Y1.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-CdsE1R40.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-CcAOzx6T.js">
+    <link rel="modulepreload" crossorigin href="./assets/maps-s2pQkyf5.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-B9D0JO9U.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-lG8j6oqk.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-DsANziQR.js">
+    <link rel="modulepreload" crossorigin href="./assets/range-sshwVRcP.js">
+    <link rel="modulepreload" crossorigin href="./assets/capitalize-DQeWKRGx.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-BLx7B_us.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-aB5dKsM0.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-BnFXtaZZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/play-BJDBXApx.js">
+    <link rel="modulepreload" crossorigin href="./assets/chat-components-ZPMBgudd.js">
+    <link rel="modulepreload" crossorigin href="./assets/isEmpty-DIxUV1UR.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-check-big-OIMTUpe6.js">
+    <link rel="modulepreload" crossorigin href="./assets/chat-display-Bru4OSNG.js">
+    <link rel="modulepreload" crossorigin href="./assets/ai-model-dropdown-BmUQTAgw.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-eU5Hsfml.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeleteCell-DMZ3UAH-.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-D4lB4En9.js">
+    <link rel="modulepreload" crossorigin href="./assets/process-output-BbPyu6EM.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-Dg_vNTSs.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-CboCOq4o.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-B3JckBtM.js">
+    <link rel="modulepreload" crossorigin href="./assets/add-cell-with-ai-DIVGdu6r.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-D42sFB6d.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-DxXFdbn8.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-qp_XZeSS.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-DtmhBN9V.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-D8i8UxCP.js">
+    <link rel="modulepreload" crossorigin href="./assets/toggle-G1t0cQyf.js">
+    <link rel="modulepreload" crossorigin href="./assets/globals-h0vQaXwS.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-CXQVxivL.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-DN0TMY36.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-CyLJYAfP.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-6FYvpjrm.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-BqxQegSf.js">
+    <link rel="modulepreload" crossorigin href="./assets/utilities.esm-DvUjESxl.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-DBJNk57_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-Cc3-yOhX.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-D9zAYqG9.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-CHesBJpY.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-CoXhoNRa.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-video-camera-CZUg-nFA.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-DJ8nLAfz.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-CNZLffHW.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-DfnWQ2d8.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-DbW1_PHb.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-C-lF7BNB.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-BlH9lWzg.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-Clr_fqUr.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-B_S7yTZz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-gzLRYatP.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-B42u_5hF.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-C638SUfx.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-FiXEquL2.js">
+    <link rel="modulepreload" crossorigin href="./assets/VisuallyHidden-B9t3FhTP.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-DydgU7lx.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFlatten-CLPh0yMf.js">
+    <link rel="modulepreload" crossorigin href="./assets/flatten-Buk63LQO.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-DeQioq0G.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-MBUyxNtK.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-DobaYJPt.js">
+    <link rel="modulepreload" crossorigin href="./assets/house-CncUa_LL.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-Din9uFKE.js">
+    <link rel="modulepreload" crossorigin href="./assets/settings-MTlHVxz3.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-leQTJTJJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-CbD0f2J6.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-B0Sy2M4C.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-jmgGt1lS.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B7vuddcd.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DDc_1b-N.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <style title='marimo-custom'>/* style3.css - Professional Monochrome CV Theme */
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Headings */
+h2, h3 {
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs & text */
+p, li, .tags {
+  color: #000000;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Divider lines */
+hr, .divider {
+  border: none;
+  border-top: 1px solid #dddddd;
+  margin: 20px 0;
+}
+
+
+
+
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+}
+.skills-card{
+  perspective:1000px;
+  height:100px;
+  cursor:pointer;
+  transition:transform 0.2s;
+}
+.skills-card:hover{
+  transform:scale(1.04);
+}
+.skills-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transition:transform 0.6s ease;
+  transform-style:preserve-3d;
+}
+.skills-card:hover .skills-inner{
+  transform:rotateY(180deg);
+}
+.skills-face{
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  padding:12px;
+  backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  color:white;
+}
+.skills-front{color:white;}
+.skills-back{background:#000;color:white;transform:rotateY(180deg);}
+.skills-title{font-weight:700;margin-top:6px;font-size:1rem;}
+.skills-desc{opacity:.85;font-size:.9em;margin-top:4px;}</style><marimo-code hidden="">%23%20Marimo-intro.py%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.19.4%22%0Aapp%20%3D%20marimo.App(css_file%3D%22style3.css%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20from%20marimo%20import%20ui%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Hi!%20I%20am%20Balmee%20Hunumunt%0A%20%20%20%20**2nd%20year%20BSc%20(Hons)%20Computer%20Science%2C%20University%20of%20the%20Arts%20London**%0A%20%20%20%20%F0%9F%93%8D%20London%2C%20UK%0A%0A%20%20%20%20**%F0%9F%93%A7**%20Albertbh04%40outlook.com%0A%20%20%20%20**%F0%9F%93%9E**%2007412%20732178%0A%20%20%20%20**%F0%9F%94%97**%20%5BLinkedIn%5D(https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbalmee-hunumunt-87080429a%2F)%20%7C%20%5BGitHub%5D(https%3A%2F%2Fgithub.com%2FBalmee)%0A%0A%20%20%20%20---%0A%20%20%20%20%23%23%23%20Welcome%20to%20my%20Interactive%20CV%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%20%20%20%20%23%23%20My%20Education%20%26%20Project%20Timeline%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20yearS%20%3D%20mo.ui.slider(2021%2C%202025%2C%20value%3D2021%2C%20label%3D%22Select%20Year%22)%0A%20%20%20%20yearS%0A%20%20%20%20return%20(yearS%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo%2C%20yearS)%3A%0A%20%20%20%20year%20%3D%20yearS.value%0A%0A%20%20%20%20if%20year%20%3D%3D%202021%3A%0A%20%20%20%20%20%20%20%20contentS%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%20%20%20%20%3Ch3%3E%F0%9F%8E%93%20Finishing%20GCSE's%20%26%20Starting%20A-levels%20(2021)%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EThe%20Ravensbourne%20School.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3ELearning%20Blender%20and%20Unity%20on%20the%20side%20for%20fun.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%22%22%22)%0A%20%20%20%20elif%20year%20%3D%3D%202022%3A%0A%20%20%20%20%20%20%20%20contentS%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%20%20%20%20%3Ch3%3E%F0%9F%92%BB%20Virtual%20Work%20Experience%20%E2%80%93%20Fujitsu%20(2022)%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EExplored%20smart%20cities%20and%20cybersecurity.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EStrengthened%20interest%20in%20real-world%20applications%20of%20computing.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%22%22%22)%0A%20%20%20%20elif%20year%20%3D%3D%202023%3A%0A%20%20%20%20%20%20%20%20contentS%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%20%20%20%20%3Ch3%3E%F0%9F%8E%AC%20Finishing%20A-levels%20%26%20Starting%20BSc%20Computer%20Science%20at%20UAL%20(2023)%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EFinished%20A-levels%20at%20The%20Ravensbourne%20School.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3Einterset%20in%20animation%20and%20game%20design%20turns%20to%20interest%20in%20computer%20science.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%22%22%22)%0A%20%20%20%20elif%20year%20%3D%3D%202024%3A%0A%20%20%20%20%20%20%20%20contentS%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%20%20%20%20%3Ch3%3E%F0%9F%8C%B1%20Completed%20Year%201%20(2024)%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EESP8266-based%20automated%20irrigation%20system.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EIntegrated%20MQTT%2C%20Firebase%2C%20and%20mobile%20dashboard.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EFull-stack%20movie%20database%20app.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3E%20Integrating%20TMDB%20API%20with%20Flask%20backend%20and%20Astro%2FReact%20frontend.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%22%22%22)%0A%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20contentS%20%3D%20mo.md(%22%22%22%0A%20%20%20%20%20%20%20%20%3Ch3%3E%F0%9F%8C%B1%20Year%202%20Start%20and%20Applting%20to%20Internships%20(2025)%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EStarting%20Year%202%20and%20also%20attemtping%20to%20learn%20more%20on%20game%20creation.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EApplying%20to%20Summer%20Internships.%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%22%22%22)%0A%0A%0A%0A%20%20%20%20contentS%0A%20%20%20%20return%20(year%2C)%0A%0A%0A%40app.cell%0Aasync%20def%20_(mo%2C%20year%2C%20yearS)%3A%0A%20%20%20%20import%20micropip%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Used%20from%20Pyodide%20which%20is%20used%20in%20browser%20toinstall%20pure%20Python%20packages%20dynamically%20using%20micropip%2C%0A%20%20%20%20await%20micropip.install(%22plotly%22)%20%23%20This%20case%20being%20plotly%0A%20%20%20%20import%20plotly.graph_objects%20as%20go0%0A%0A%20%20%20%20years%20%3D%20yearS.value%0A%0A%20%20%20%20%23%20Interest%20levels%20per%20year%20(percentages)%0A%20%20%20%20interest_data%20%3D%20%7B%0A%20%20%20%20%20%20%20%202021%3A%20%7B%22Computer%20Science%22%3A%2010%2C%20%22Other%20Academia%22%3A%2090%7D%2C%0A%20%20%20%20%20%20%20%202022%3A%20%7B%22Computer%20Science%22%3A%2030%2C%20%22Other%20Academia%22%3A%2070%7D%2C%0A%20%20%20%20%20%20%20%202023%3A%20%7B%22Computer%20Science%22%3A%2065%2C%20%22Other%20Academia%22%3A%2035%7D%2C%0A%20%20%20%20%20%20%20%202024%3A%20%7B%22Computer%20Science%22%3A%2085%2C%20%22Other%20Academia%22%3A%2015%7D%2C%0A%20%20%20%20%20%20%20%202025%3A%20%7B%22Computer%20Science%22%3A%2095%2C%20%22Other%20Academia%22%3A%205%7D%2C%0A%20%20%20%20%7D%0A%0A%20%20%20%20data0%20%3D%20interest_data%5Byear%5D%0A%0A%20%20%20%20labels%20%3D%20%5B%22Computer%20Science%22%2C%20%22Other%20Academia%22%5D%0A%20%20%20%20values%20%3D%20%5Bdata0%5Blabel%5D%20for%20label%20in%20labels%5D%0A%0A%20%20%20%20%23%20Lock%20colours%20to%20categories%0A%20%20%20%20colors%20%3D%20%5B%22%231f77b4%22%2C%20%22%23ff7f0e%22%5D%20%20%23%20Blue%20%3D%20CS%2C%20Orange%20%3D%20Other%0A%0A%20%20%20%20fig0%20%3D%20go0.Figure(%0A%20%20%20%20%20%20%20%20go0.Pie(%0A%20%20%20%20%20%20%20%20%20%20%20%20labels%3Dlabels%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20values%3Dvalues%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20hole%3D0.4%2C%20%20%23%20for%20a%20donut%20style%0A%20%20%20%20%20%20%20%20%20%20%20%20hovertemplate%3D%22%25%7Blabel%7D%3A%20%25%7Bvalue%7D%25%3Cextra%3E%3C%2Fextra%3E%22%2C%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20)%0A%0A%20%20%20%20fig0.update_layout(%0A%20%20%20%20%20%20%20%20title%3Df%22Interest%20in%20Computer%20Science%20%E2%80%94%20%7Byears%7D%22%2C%0A%20%20%20%20%20%20%20%20height%3D350%2C%0A%20%20%20%20%20%20%20%20margin%3Ddict(l%3D20%2C%20r%3D20%2C%20t%3D50%2C%20b%3D20)%2C%0A%20%20%20%20%20%20%20%20showlegend%3DTrue%2C%0A%20%20%20%20)%0A%0A%20%20%20%20fig0.update_traces(sort%3DFalse)%0A%0A%0A%20%20%20%20mo.ui.plotly(fig0)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.Html(r%22%22%22%0A%20%20%20%20%3Cdiv%20class%3D%22projects-section%22%20style%3D%22font-family%3AArial%2C%20sans-serif%3B%20max-width%3A900px%3B%20margin%3Aauto%3B%20padding%3A16px%3B%22%3E%0A%0A%20%20%20%20%20%20%3Ch2%20style%3D%22font-size%3A28px%3B%20font-family%3A%20'Inter'%2C%20sans-serif%3B%20font-weight%3A700%3B%20margin-bottom%3A24px%3B%20border-bottom%3A2px%20solid%20%23333%3B%20padding-bottom%3A4px%3B%22%3EYear%201%20Projects%3C%2Fh2%3E%0A%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22projects-grid%22%20style%3D%22display%3Agrid%3B%20gap%3A32px%3B%22%3E%0A%0A%20%20%20%20%20%20%20%20%3C!--%20Project%201%3A%20Smart%20Watering%20System%20--%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22project-card%22%20style%3D%22border%3A1px%20solid%20%23ddd%3B%20border-radius%3A12px%3B%20padding%3A20px%3B%20box-shadow%3A0%202px%206px%20rgba(0%2C0%2C0%2C0.05)%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Ch3%20style%3D%22font-size%3A22px%3B%20font-weight%3A700%3B%20margin-bottom%3A4px%3B%22%3ESmart%20Watering%20System%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cp%20style%3D%22font-size%3A14px%3B%20color%3A%23555%3B%20font-style%3Aitalic%3B%20margin-bottom%3A12px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20London%2C%20UK%20%26mdash%3B%20IoT%20%2B%20Mobile%20App%20%7C%20April%20-%20June%202025%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22margin-bottom%3A12px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cvideo%20width%3D%22100%25%22%20controls%20preload%3D%22metadata%22%20style%3D%22border-radius%3A8px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Csource%20src%3D%22https%3A%2F%2Fb3pjjqqp3bfchjdh.public.blob.vercel-storage.com%2Fsmart_watering.mp4%22%20type%3D%22video%2Fmp4%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Your%20browser%20does%20not%20support%20the%20video%20tag.%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fvideo%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cul%20style%3D%22padding-left%3A20px%3B%20margin-top%3A0%3B%20line-height%3A1.5%3B%20color%3A%23333%3B%20font-size%3A15px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Conceived%20and%20constructed%20an%20IoT%20system%20using%20ESP8266%20with%20soil%20moisture%2C%20DHT11%20sensors%20and%20a%20pump.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Linked%20sensors%20to%20ThingSpeak%20for%20real-time%20data%20logging%20and%20analysis.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Designed%20both%20automatic%20irrigation%20logic%20and%20manual%20override%20through%20MQTT.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Produced%20a%20mobile%20dashboard%20using%20Expo%20Go%2C%20allowing%20remote%20supervision%20and%20pump%20control.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Ful%3E%0A%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%0A%20%20%20%20%20%20%20%20%3C!--%20Project%202%3A%20CineMind%20--%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22project-card%22%20style%3D%22border%3A1px%20solid%20%23ddd%3B%20border-radius%3A12px%3B%20padding%3A20px%3B%20box-shadow%3A0%202px%206px%20rgba(0%2C0%2C0%2C0.05)%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Ch3%20style%3D%22font-size%3A22px%3B%20font-weight%3A700%3B%20margin-bottom%3A4px%3B%22%3ECineMind%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cp%20style%3D%22font-size%3A14px%3B%20color%3A%23555%3B%20font-style%3Aitalic%3B%20margin-bottom%3A12px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20London%2C%20UK%20%26mdash%3B%20Full-Stack%20Film%20Database%20App%20%7C%20March%20-%20June%202025%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22margin-bottom%3A12px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cvideo%20width%3D%22100%25%22%20controls%20preload%3D%22metadata%22%20style%3D%22border-radius%3A8px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Csource%20src%3D%22https%3A%2F%2Fb3pjjqqp3bfchjdh.public.blob.vercel-storage.com%2Fcinemind.mp4%22%20type%3D%22video%2Fmp4%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Your%20browser%20does%20not%20support%20the%20video%20tag.%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fvideo%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cul%20style%3D%22padding-left%3A20px%3B%20margin-top%3A0%3B%20line-height%3A1.5%3B%20color%3A%23333%3B%20font-size%3A15px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Built%20and%20deployed%20a%20full-stack%20platform%20using%20Flask%20backend%20with%20Astro%2FReact%20frontend.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Connected%20TMDB%20API%20to%20enhance%20film%20metadata%2C%20actor%20biographies%2C%20and%20media%20assets.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Implemented%20search%20bar%20with%20filters%20(genre%2C%20language%2C%20etc.)%2C%20dynamic%20UI%20updates%2C%20and%20responsive%20movie%20grid.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Employed%20SQLite%20and%20REST%20endpoints%2C%20tested%20via%20Jupyter%20Notebook.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Ful%3E%0A%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%0A%20%20%20%20%20%20%20%20%3C!--%20Project%203%3A%20Tamagotchi%20--%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22project-card%22%20style%3D%22border%3A1px%20solid%20%23ddd%3B%20border-radius%3A12px%3B%20padding%3A20px%3B%20box-shadow%3A0%202px%206px%20rgba(0%2C0%2C0%2C0.05)%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Ch3%20style%3D%22font-size%3A22px%3B%20font-weight%3A700%3B%20margin-bottom%3A4px%3B%22%3ETamagotchi%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cp%20style%3D%22font-size%3A14px%3B%20color%3A%23555%3B%20font-style%3Aitalic%3B%20margin-bottom%3A12px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20Personal%20Project%20%26mdash%3B%20Python%20Simulation%20%7C%20January%202025%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22margin-bottom%3A12px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cvideo%20width%3D%22100%25%22%20controls%20preload%3D%22metadata%22%20style%3D%22border-radius%3A8px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Csource%20src%3D%22https%3A%2F%2Fb3pjjqqp3bfchjdh.public.blob.vercel-storage.com%2Ftamagotchi.mp4%22%20type%3D%22video%2Fmp4%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20Your%20browser%20does%20not%20support%20the%20video%20tag.%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fvideo%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cul%20style%3D%22padding-left%3A20px%3B%20margin-top%3A0%3B%20line-height%3A1.5%3B%20color%3A%23333%3B%20font-size%3A15px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Created%20a%20Python-based%20Tamagotchi%20simulation%20to%20practice%20OOP%20principles.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Implemented%20feeding%2C%20sleeping%2C%20and%20happiness%20mechanics%20for%20the%20virtual%20pet.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Designed%20a%20terminal-based%20interface%20with%20real-time%20state%20updates.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cli%3E%E2%80%A2Enhanced%20problem-solving%20and%20Python%20GUI%20design%20skills%20through%20iterative%20testing.%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Ful%3E%0A%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%0A%20%20%20%20%23%20Skill%20entries%20with%20unique%20colors%0A%20%20%20%20skills_entries%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Python%22%2C%22desc%22%3A%22Scripting%2C%20data%20analysis%2C%20automation%22%2C%22emoji%22%3A%22%F0%9F%90%8D%22%2C%22color%22%3A%22%234f46e5%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22JavaScript%22%2C%22desc%22%3A%22Interactive%20web%20development%2C%20DOM%20logic%22%2C%22emoji%22%3A%22%F0%9F%9F%A8%22%2C%22color%22%3A%22%23f59e0b%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Unity%22%2C%22desc%22%3A%22Game%20design%2C%203D%20simulations%2C%20real-time%20rendering%22%2C%22emoji%22%3A%22%F0%9F%8E%AE%22%2C%22color%22%3A%22%2322d3ee%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Flask%22%2C%22desc%22%3A%22Backend%20REST%20APIs%20and%20services%22%2C%22emoji%22%3A%22%F0%9F%8C%B6%EF%B8%8F%22%2C%22color%22%3A%22%23ef4444%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22React%22%2C%22desc%22%3A%22Dynamic%20user%20interfaces%22%2C%22emoji%22%3A%22%E2%9A%9B%EF%B8%8F%22%2C%22color%22%3A%22%2306b6d4%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Astro%22%2C%22desc%22%3A%22Modern%20frontend%20framework%20integration%22%2C%22emoji%22%3A%22%F0%9F%9A%80%22%2C%22color%22%3A%22%238b5cf6%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22MQTT%22%2C%22desc%22%3A%22IoT%20device%20communication%22%2C%22emoji%22%3A%22%F0%9F%93%A1%22%2C%22color%22%3A%22%2310b981%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22ThingSpeak%22%2C%22desc%22%3A%22IoT%20data%20visualization%22%2C%22emoji%22%3A%22%F0%9F%93%8A%22%2C%22color%22%3A%22%2322c55e%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Expo%22%2C%22desc%22%3A%22Mobile%20dashboards%20%26%20rapid%20prototyping%22%2C%22emoji%22%3A%22%F0%9F%93%B1%22%2C%22color%22%3A%22%230ea5e9%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22SQLite%20%26%20Docker%22%2C%22desc%22%3A%22Persistence%2C%20containers%2C%20deployment%22%2C%22emoji%22%3A%22%F0%9F%97%84%EF%B8%8F%22%2C%22color%22%3A%22%2364748b%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Git%22%2C%22desc%22%3A%22Version%20control%20%26%20collaboration%22%2C%22emoji%22%3A%22%F0%9F%94%A7%22%2C%22color%22%3A%22%23f97316%22%7D%2C%0A%20%20%20%20%20%20%20%20%7B%22title%22%3A%22Activities%22%2C%22desc%22%3A%22Course%20Rep%2C%20Hackathons%2C%20LeetCode%22%2C%22emoji%22%3A%22%F0%9F%8F%83%22%2C%22color%22%3A%22%23ec4899%22%7D%2C%0A%20%20%20%20%5D%0A%0A%0A%20%20%20%20%23%20Helper%20to%20create%20card%20HTML%0A%20%20%20%20def%20skills_card(entry%3A%20dict)%20-%3E%20str%3A%0A%20%20%20%20%20%20%20%20front%20%3D%20f%22%22%22%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D'skills-face%20skills-front'%20style%3D'background%3A%7Bentry%5B'color'%5D%7D'%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D'skills-title'%3E%7Bentry%5B'emoji'%5D%7D%20%7Bentry%5B'title'%5D%7D%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D'skills-desc'%3EWhat%20I've%20Gained%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20back%20%3D%20f%22%22%22%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D'skills-face%20skills-back'%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D'skills-title'%3E%7Bentry%5B'emoji'%5D%7D%20%7Bentry%5B'title'%5D%7D%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D'skills-desc'%3E%7Bentry%5B'desc'%5D%7D%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20return%20f%22%3Cdiv%20class%3D'skills-card'%3E%3Cdiv%20class%3D'skills-inner'%3E%7Bfront%7D%7Bback%7D%3C%2Fdiv%3E%3C%2Fdiv%3E%22%0A%0A%20%20%20%20%23%20Render%20all%20cards%0A%20%20%20%20grid_html%20%3D%20%22%3Cdiv%20class%3D'skills-grid'%3E%22%20%2B%20%22%22.join(skills_card(e)%20for%20e%20in%20skills_entries)%20%2B%20%22%3C%2Fdiv%3E%22%0A%0A%20%20%20%20%23%20Display%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5Bmo.md(%22%23%23%20Developed%20Skills%22)%2C%20mo.md(grid_html)%5D%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20Time%20Spent%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20%23%20Dropdown%20for%20week%20type%20selection%0A%20%20%20%20week_type%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3D%5B%22University%20Week%22%2C%20%22Holiday%20Week%22%2C%20%22Term%20Break%20Week%22%5D%2C%0A%20%20%20%20%20%20%20%20value%3D%22University%20Week%22%2C%0A%20%20%20%20%20%20%20%20label%3D%22Select%20Week%20Type%22%0A%20%20%20%20)%0A%20%20%20%20week_type%0A%20%20%20%20return%20(week_type%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo%2C%20week_type)%3A%0A%20%20%20%20import%20plotly.graph_objs%20as%20go%0A%20%20%20%20import%20numpy%20as%20np%0A%0A%20%20%20%20%23%20Data%20for%20each%20week%20type%0A%20%20%20%20time_data_sets%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%22University%20Week%22%3A%20%7B%22Sleep%22%3A%2056%2C%20%22Study%22%3A%2050%2C%20%22Exercise%22%3A%205%2C%20%22Leisure%22%3A%2037%2C%20%22Social%22%3A%2020%7D%2C%0A%20%20%20%20%20%20%20%20%22Holiday%20Week%22%3A%20%7B%22Sleep%22%3A%2050%2C%20%22Study%22%3A%2027%2C%20%22Exercise%22%3A%2010%2C%20%22Leisure%22%3A%2041%2C%20%22Social%22%3A%2040%7D%2C%0A%20%20%20%20%20%20%20%20%22Term%20Break%20Week%22%3A%20%7B%22Sleep%22%3A%2056%2C%20%22Study%22%3A%2055%2C%20%22Exercise%22%3A%2010%2C%20%22Leisure%22%3A%2022%2C%20%22Social%22%3A%2025%7D%2C%0A%20%20%20%20%7D%0A%0A%20%20%20%20selected_week%20%3D%20week_type.value%0A%20%20%20%20data%20%3D%20time_data_sets%5Bselected_week%5D%0A%0A%20%20%20%20activities%20%3D%20list(data.keys())%0A%20%20%20%20hours%20%3D%20list(data.values())%0A%0A%20%20%20%20%23%20Bar%20%2B%20line%20chart%0A%20%20%20%20fig%20%3D%20go.Figure()%0A%0A%20%20%20%20fig.add_trace(go.Bar(%0A%20%20%20%20%20%20%20%20x%3Dactivities%2C%0A%20%20%20%20%20%20%20%20y%3Dhours%2C%0A%20%20%20%20%20%20%20%20name%3D%22Hours%20(Bar)%22%2C%0A%20%20%20%20%20%20%20%20marker_color%3D'royalblue'%2C%0A%20%20%20%20%20%20%20%20hovertemplate%3D%22%25%7Bx%7D%3A%20%25%7By%7D%20hours%3Cextra%3E%3C%2Fextra%3E%22%0A%20%20%20%20))%0A%0A%20%20%20%20fig.add_trace(go.Scatter(%0A%20%20%20%20%20%20%20%20x%3Dactivities%2C%0A%20%20%20%20%20%20%20%20y%3Dhours%2C%0A%20%20%20%20%20%20%20%20name%3D%22Hours%20(Line)%22%2C%0A%20%20%20%20%20%20%20%20mode%3D%22lines%2Bmarkers%22%2C%0A%20%20%20%20%20%20%20%20line%3Ddict(color%3D'orange'%2C%20width%3D3)%2C%0A%20%20%20%20%20%20%20%20marker%3Ddict(size%3D8)%2C%0A%20%20%20%20%20%20%20%20hovertemplate%3D%22%25%7Bx%7D%3A%20%25%7By%7D%20hours%3Cextra%3E%3C%2Fextra%3E%22%0A%20%20%20%20))%0A%0A%20%20%20%20fig.update_layout(%0A%20%20%20%20%20%20%20%20title%3Df%22Weekly%20Time%20Allocation%20%E2%80%94%20%7Bselected_week%7D%22%2C%0A%20%20%20%20%20%20%20%20xaxis_title%3D%22Activities%22%2C%0A%20%20%20%20%20%20%20%20yaxis_title%3D%22Hours%20per%20Week%22%2C%0A%20%20%20%20%20%20%20%20yaxis%3Ddict(range%3D%5B0%2C%20max(hours)%20%2B%2010%5D)%2C%0A%20%20%20%20%20%20%20%20margin%3Ddict(l%3D70%2C%20r%3D20%2C%20t%3D50%2C%20b%3D40)%2C%0A%20%20%20%20%20%20%20%20height%3D400%2C%0A%20%20%20%20%20%20%20%20legend%3Ddict(orientation%3D%22h%22%2C%20y%3D-0.2)%0A%20%20%20%20)%0A%0A%20%20%20%20mo.hstack(%5Bmo.ui.plotly(fig)%5D)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%0A%20%20%20%20%23%23%20For%20the%20Future!!%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.mermaid(%22%22%22%0A%20%20%20%20graph%20TD%0A%20%20%20%20%20%20%20%20A%5B2025%20%26%202026%3A%20Final%20Year%20%26%20Focus%5D%20--%3E%20B%5BGraduate%20with%20First-Class%20Degree%5D%0A%20%20%20%20%20%20%20%20A%20--%3E%20C%5BStrengthen%20Portfolio%5D%0A%20%20%20%20%20%20%20%20A%20--%3E%20D%5BApply%20for%20Graduate%20Roles%5D%0A%0A%20%20%20%20%20%20%20%20C%20--%3E%20C1%5BFull-Stack%20Projects%5D%0A%20%20%20%20%20%20%20%20C%20--%3E%20C2%5BGame%20Design%20and%20Programming%5D%0A%20%20%20%20%20%20%20%20C%20--%3E%20C3%5BData%20Visualisation%20%26%20ML%5D%0A%0A%20%20%20%20%20%20%20%20%25%25%20Game%20design%20branch%0A%20%20%20%20%20%20%20%20C2%20--%3E%20G1%5BSolo%20Game%20Projects%5D%0A%20%20%20%20%20%20%20%20G1%20--%3E%20G2%5BPublish%20Small%20Games%20%26%20Prototypes%5D%0A%20%20%20%20%20%20%20%20G2%20--%3E%20G3%5BJoin%20Indie%20Game%20Team%5D%0A%0A%20%20%20%20%20%20%20%20G3%20--%3E%20G4%5BWork%20in%20Games%20Industry%5D%0A%0A%20%20%20%20%20%20%20%20%25%25%20Career%20branch%0A%20%20%20%20%20%20%20%20D%20--%3E%20E%5BGraduate%20Software%20Engineer%20Role%5D%0A%0A%20%20%20%20%20%20%20%20E%20--%3E%20F%5B2026%E2%80%932028%3A%20Industry%20Growth%5D%0A%20%20%20%20%20%20%20%20F%20--%3E%20F1%5BBuild%20Production%20Systems%5D%0A%20%20%20%20%20%20%20%20F%20--%3E%20F2%5BWork%20in%20Agile%20Teams%5D%0A%20%20%20%20%20%20%20%20F%20--%3E%20F3%5BLearn%20Cloud%20%26%20DevOps%5D%0A%0A%20%20%20%20%20%20%20%20F%20--%3E%20G%5BMid-Level%20Software%20Engineer%5D%0A%0A%20%20%20%20%20%20%20%20G%20--%3E%20H%5B2028%2B%3A%20Specialisation%5D%0A%20%20%20%20%20%20%20%20H%20--%3E%20H1%5BAI%20%2F%20Data%20Engineering%5D%0A%20%20%20%20%20%20%20%20H%20--%3E%20H2%5BSystems%20%26%20Software%5D%0A%20%20%20%20%20%20%20%20H%20--%3E%20H3%5BTech%20Leadership%5D%0A%0A%20%20%20%20%20%20%20%20H%20--%3E%20I%5BLong-Term%20Career%20Stability%20%26%20Impact%5D%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%20%20%20%20%23%23%20AI%20Use%20%26%20Acknowledgement%0A%0A%20%20%20%20AI%20tools%20were%20used%20as%20a%20development%20assistant%20throughout%20the%20creation%20of%20this%20interactive%20CV%20notebook.%0A%20%20%20%20ChatGPT%20(GPT-5%20family)%20role%20was%20focused%20on%20supporting%2C%20debugging%2C%20and%20refinement%2C%20rather%20than%20generating%20final%20content%20wholesale.%0A%0A%20%20%20%20Specifically%2C%20AI%20assistance%20helped%20with%3A%0A%20%20%20%20-%20Structuring%20interactive%20data%20visualisations%20(bar%20and%20line%2C%20but%20not%20pie)%20using%20Plotly.%0A%20%20%20%20-%20Improving%20state%20handling%20and%20UI%20logic%20in%20Marimo%20(sliders%2C%20dropdowns%2C%20toggles).%0A%20%20%20%20-%20Debugging%20syntax%2C%20scope%2C%20and%20rendering%20issues%20within%20notebook%20cells.%0A%20%20%20%20-%20Enhancing%20layout%20clarity%2C%20consistency%2C%20and%20readability%20across%20sections.%0A%20%20%20%20-%20Using%20href%20videos%20was%20learnt%20and%20understood%20through%20AI%20to%20allowed%20to%20be%20finished%20initially%20I%20used%20local%20videos%20which%20I%20couldnt%20achieve%20by%20myself.%0A%0A%20%20%20%20All%20project%20descriptions%2C%20career%20decisions%2C%20data%20values%2C%20and%20written%20content%20reflect%20my%20own%20experiences%2C%20skills%2C%20and%20intentions.%0A%20%20%20%20The%20final%20design%20choices%2C%20code%20integration%2C%20and%20narrative%20structure%20were%20manually%20implemented%20and%20curated%20by%20me.%0A%0A%20%20%20%20AI%20was%20used%20as%20a%20tool%20to%20accelerate%20learning%20and%20problem-solving%2C%20similar%20to%20documentation%20or%20online%20references%2C%20while%20maintaining%20full%20ownership%20of%20the%20work.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a portal for the data editor to render in -->
+    <div id="portal" data-testid="glide-portal" style="position: fixed; left: 0; top: 0; z-index: 9999"></div>
+    <script data-marimo="true">
+      window.__MARIMO_MOUNT_CONFIG__ = {
+            "filename": "notebook.py",
+            "mode": "read",
+            "version": "0.19.4",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": false, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"css_file": "style3.css", "sql_output": "auto", "width": "compact"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        };
+    </script>
+  </body>
+</html>

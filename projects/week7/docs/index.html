@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>week7</title>
+    <script type="module" crossorigin src="./assets/index-Cq_ZnpmP.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-BW0IMuFq.js">
+    <link rel="modulepreload" crossorigin href="./assets/hotkeys-uKX61F1_.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-BLUna9fQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Cl9k9ZmS.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-DzliDDTm.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-C8wT63Va.js">
+    <link rel="modulepreload" crossorigin href="./assets/_Uint8Array-BGESiCQL.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-CrRUCOBw.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-D0MtrJOx.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-C1rgT0yh.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-BGmjiNul.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-DeeZ7FnK.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-DN_bIXfG.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-DAnNhy3O.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-COkmyg1v.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-B8cGZzP5.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-C9fstfnp.js">
+    <link rel="modulepreload" crossorigin href="./assets/Combination-D1TsGrBC.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-9PZrU2e0.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CBrDuocE.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-CW2xpJ57.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-CrAQug3q.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-D9lTzMzP.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-CvjcEpZC.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-Bzf3rpev.js">
+    <link rel="modulepreload" crossorigin href="./assets/_getTag-BWqNuuwU.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseIsEqual-Cz9Tt_-E.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-DlWF5OMa.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-C6yE60hi.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFor-Duhs3RiJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-BBX6ug-N.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-Cg4WLWh2.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-pfqq9IdB.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-Bkp4R3bQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-DzyBMRsy.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-D6nhy4FA.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-ClFZlR7U.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-B3BENoUa.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-C0HaHO6a.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BGkTcW3U.js">
+    <link rel="modulepreload" crossorigin href="./assets/toString-DlRqgfqz.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasUnicode-zBEpxwYe.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-CmDXEyIC.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-EAuSVK-5.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-CNj0G_ol.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-CTiSlR1m.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-BmAOeMOK.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-DDa-hVe3.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CAcX026F.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DKNOF5xd.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CI6_zMIl.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BVf1IY4_.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Cq_4nPfh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CVj-_Iiz.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-HGZzCB0y.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-RKnr9SNh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BuhT82Xx.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-0ac7Aukl.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-5JckKRQn.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-Bj40p_Np.js">
+    <link rel="modulepreload" crossorigin href="./assets/_arrayReduce-bZBYsK-u.js">
+    <link rel="modulepreload" crossorigin href="./assets/type-BdyvjzTI.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseProperty-DuoFhI7N.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-6sUe0ZdD.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-BbFlGgjv.js">
+    <link rel="modulepreload" crossorigin href="./assets/toInteger-CDcO32Gx.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CaVvnK_o.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-CwSdzVhm.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-CpvLRFsM.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-C7JBxSzd.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-Czc5z_04.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-RldLPyJs.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-jcHA5geR.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-CF5DtF1E.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-em3gna-v.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-C9_R_vlY.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-DD7JA3RM.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-DHfVoQfl.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-FoXhpyAb.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-DTwIUo40.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-B80Yt1uu.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-DVhvP4lH.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-Dz1jd8Ir.js">
+    <link rel="modulepreload" crossorigin href="./assets/multi-map-CQd4MZr5.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-BEdExd6A.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-CqEd11Di.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-BP4_BZLr.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-DNmjkr65.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-Bm5VLYk2.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-CJMywDNY.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-By2cOynM.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-DRhpWiOq.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-gBVL4NN-.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-jWsqdLn1.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-C1czjtp7.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-Biy2OCfF.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-DmVMvj8M.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-Cp2punaU.js">
+    <link rel="modulepreload" crossorigin href="./assets/katex-AwOI3EvM.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-CHnOtnr3.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-OGVTOU66-CjNLT2C3.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-ueIadUZx.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Dg7UO_Vw.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-CiJW14cR.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-DtnzNVk-.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-Cm_P3BT1.js">
+    <link rel="modulepreload" crossorigin href="./assets/mode-wovPGH9p.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-N-2faAGj.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-B8p715zK.js">
+    <link rel="modulepreload" crossorigin href="./assets/table--_20dwBZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/tabs-Ctk4D03n.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-BJJJOr9W.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-CU-WWxnz.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-DvT0IGDZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-B9CrBoaO.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-DhMN8sxe.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-DhzaK-Y1.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-CdsE1R40.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-CcAOzx6T.js">
+    <link rel="modulepreload" crossorigin href="./assets/maps-s2pQkyf5.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-B9D0JO9U.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-lG8j6oqk.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-DsANziQR.js">
+    <link rel="modulepreload" crossorigin href="./assets/range-sshwVRcP.js">
+    <link rel="modulepreload" crossorigin href="./assets/capitalize-DQeWKRGx.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-BLx7B_us.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-aB5dKsM0.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-BnFXtaZZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/play-BJDBXApx.js">
+    <link rel="modulepreload" crossorigin href="./assets/chat-components-ZPMBgudd.js">
+    <link rel="modulepreload" crossorigin href="./assets/isEmpty-DIxUV1UR.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-check-big-OIMTUpe6.js">
+    <link rel="modulepreload" crossorigin href="./assets/chat-display-Bru4OSNG.js">
+    <link rel="modulepreload" crossorigin href="./assets/ai-model-dropdown-BmUQTAgw.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-eU5Hsfml.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeleteCell-DMZ3UAH-.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-D4lB4En9.js">
+    <link rel="modulepreload" crossorigin href="./assets/process-output-BbPyu6EM.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-Dg_vNTSs.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-CboCOq4o.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-B3JckBtM.js">
+    <link rel="modulepreload" crossorigin href="./assets/add-cell-with-ai-DIVGdu6r.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-D42sFB6d.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-DxXFdbn8.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-qp_XZeSS.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-DtmhBN9V.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-D8i8UxCP.js">
+    <link rel="modulepreload" crossorigin href="./assets/toggle-G1t0cQyf.js">
+    <link rel="modulepreload" crossorigin href="./assets/globals-h0vQaXwS.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-CXQVxivL.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-DN0TMY36.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-CyLJYAfP.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-6FYvpjrm.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-BqxQegSf.js">
+    <link rel="modulepreload" crossorigin href="./assets/utilities.esm-DvUjESxl.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-DBJNk57_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-Cc3-yOhX.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-D9zAYqG9.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-CHesBJpY.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-CoXhoNRa.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-video-camera-CZUg-nFA.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-DJ8nLAfz.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-CNZLffHW.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-DfnWQ2d8.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-DbW1_PHb.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-C-lF7BNB.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-BlH9lWzg.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-Clr_fqUr.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-B_S7yTZz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-gzLRYatP.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-B42u_5hF.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-C638SUfx.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-FiXEquL2.js">
+    <link rel="modulepreload" crossorigin href="./assets/VisuallyHidden-B9t3FhTP.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-DydgU7lx.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFlatten-CLPh0yMf.js">
+    <link rel="modulepreload" crossorigin href="./assets/flatten-Buk63LQO.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-DeQioq0G.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-MBUyxNtK.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-DobaYJPt.js">
+    <link rel="modulepreload" crossorigin href="./assets/house-CncUa_LL.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-Din9uFKE.js">
+    <link rel="modulepreload" crossorigin href="./assets/settings-MTlHVxz3.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-leQTJTJJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-CbD0f2J6.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-B0Sy2M4C.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-jmgGt1lS.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-B7vuddcd.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DDc_1b-N.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.19.4%22%0Aapp%20%3D%20marimo.App()%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Graphs%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.callout(%22Disclaimer%3A%20no%20AI%20tools%20were%20used%20to%20create%20this%20notebook.%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20networkx%20as%20nx%2C%20matplotlib.pyplot%20as%20plt%2C%20numpy%20as%20np%0A%20%20%20%20return%20np%2C%20nx%2C%20plt%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Task%201%0A%20%20%20%20Modify%20%60%60%60edge_list.txt%60%60%60%2C%60%60%60adjacency_list.txt%60%60%60%20to%20obtain%20the%20given%20graph%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%23%23%201.%20Adjacency%20list%3A%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(nx)%3A%0A%20%20%20%20fh%20%3D%20open('adjacency_list.txt'%2C%20'rb')%0A%20%20%20%20G%20%3D%20nx.read_adjlist(fh)%0A%20%20%20%20return%20(G%2C)%0A%0A%0A%40app.cell%0Adef%20_(G)%3A%0A%20%20%20%20G.edges()%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(G%2C%20nx%2C%20plt)%3A%0A%20%20%20%20nx.draw(G%2Cwith_labels%20%3D%20True)%0A%20%20%20%20plt.show()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%23%23%202.%20Edge%20list%3A%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(nx)%3A%0A%20%20%20%20_fh%20%3D%20open('edge_list.txt'%2C%20'rb')%0A%20%20%20%20H%20%3D%20nx.read_edgelist(_fh)%0A%20%20%20%20_fh.close()%0A%20%20%20%20return%20(H%2C)%0A%0A%0A%40app.cell%0Adef%20_(H%2C%20nx%2C%20plt)%3A%0A%20%20%20%20nx.draw(H%2Cwith_labels%20%3D%20True)%0A%20%20%20%20plt.show()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%23%23%203.%20Adjacency%20Matrix%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20Now%20create%20a%202D%20numpy.array%20that%20defines%20the%20adjacency%20matrix%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(np)%3A%0A%20%20%20%20%23%20your%20code%20here%3A%0A%20%20%20%20A%20%3D%20np.array(%5B%0A%20%20%20%20%5B0%2C%201%2C%200%2C%201%2C%200%5D%2C%0A%20%20%20%20%5B1%2C%200%2C%201%2C%201%2C%200%5D%2C%0A%20%20%20%20%5B0%2C%201%2C%200%2C%201%2C%200%5D%2C%0A%20%20%20%20%5B0%2C%201%2C%201%2C%200%2C%201%5D%2C%0A%20%20%20%20%5B0%2C%200%2C%201%2C%201%2C%200%5D%5D)%0A%20%20%20%20return%20(A%2C)%0A%0A%0A%40app.cell%0Adef%20_(A%2C%20nx%2C%20plt)%3A%0A%20%20%20%20G_1%20%3D%20nx.from_numpy_array(A)%0A%20%20%20%20nx.draw(G_1%2C%20with_labels%3DTrue)%0A%20%20%20%20plt.show()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Task%202%0A%20%20%20%20Implement%20the%20Depth-first%20search%20algorithm.%20You%20only%20need%20to%20complete%20the%20recursive%20part%20%60%60%60DSF_rec()%60%60%60%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20def%20DFS(source_node%2Cadj_list%2Ctarget)%3A%0A%20%20%20%20%20%20%20%20visited%20%3D%20%5BFalse%5D*len(adj_list)%0A%20%20%20%20%20%20%20%20DFS_rec(source_node%2Cvisited%2Cadj_list%2Ctarget)%0A%0A%0A%20%20%20%20def%20DFS_rec(n%2Cvisited%2Cadj_list%2Ctarget)%3A%0A%20%20%20%20%20%20%20%20visited%5Bn%5D%20%3D%20True%0A%20%20%20%20%20%20%20%20print(n)%0A%0A%20%20%20%20%20%20%20%20if%20n%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20True%0A%0A%20%20%20%20%20%20%20%20for%20neighbour%20in%20adj_list%5Bn%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20not%20visited%5Bneighbour%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20found%20%3D%20DFS_rec(neighbour%2C%20visited%2C%20adj_list%2C%20target)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20found%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20True%20%20%20%0A%0A%20%20%20%20%20%20%20%20return%20False%20%20%0A%20%20%20%20return%20(DFS%2C)%0A%0A%0A%40app.cell%0Adef%20_(DFS)%3A%0A%20%20%20%20adj%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%5B1%2C%203%5D%2C%20%20%20%20%20%20%20%20%20%20%20%20%23%20node%200%0A%20%20%20%20%20%20%20%20%5B0%2C%202%2C%203%5D%2C%20%20%20%20%20%20%20%20%20%23%20node%201%0A%20%20%20%20%20%20%20%20%5B1%2C%203%2C%204%5D%2C%20%20%20%20%20%20%20%20%20%23%20node%202%0A%20%20%20%20%20%20%20%20%5B0%2C%201%2C%202%2C%204%5D%2C%20%20%20%20%20%20%23%20node%203%0A%20%20%20%20%20%20%20%20%5B3%2C%202%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20node%204%0A%20%20%20%20%5D%0A%0A%0A%20%20%20%20DFS(3%2Cadj%2C0)%0A%20%20%20%20return%20(adj%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Task%203%0A%20%20%20%20Implement%20the%20Breadth-first%20search%20algorithm.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.function%0Adef%20BFS(source_node%2C%20adjacency_list%2Ctarget)%3A%0A%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20visited%20%3D%20%5BFalse%5D*len(adjacency_list)%0A%0A%20%20%20%20queue.insert(0%2Csource_node)%0A%20%20%20%20visited%5Bsource_node%5D%20%3D%20True%0A%0A%20%20%20%20while%20(len(queue)%20%3E%200)%3A%0A%20%20%20%20%20%20%20%20current_node%20%3D%20queue.pop(0)%0A%20%20%20%20%20%20%20%20print(current_node)%0A%20%20%20%20%20%20%20%20if%20current_node%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20current_node%20%0A%0A%20%20%20%20%20%20%20%20for%20neighbour%20in%20adjacency_list%5Bcurrent_node%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20not%20visited%5Bneighbour%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20queue.append(neighbour)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20visited%5Bneighbour%5D%20%3D%20True%0A%0A%20%20%20%20return%20None%0A%0A%0A%40app.cell%0Adef%20_(adj)%3A%0A%20%20%20%20BFS(3%2Cadj%2C0)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Task%204%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20graph%20%3D%20%5B%5B0%2C%204%2C%200%2C%200%2C%200%2C%200%2C%200%2C%208%2C%200%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B4%2C%200%2C%208%2C%200%2C%200%2C%200%2C%200%2C%2011%2C%200%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0%2C%208%2C%200%2C%207%2C%200%2C%204%2C%200%2C%200%2C%202%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0%2C%200%2C%207%2C%200%2C%209%2C%2014%2C%200%2C%200%2C%200%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0%2C%200%2C%200%2C%209%2C%200%2C%2010%2C%200%2C%200%2C%200%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0%2C%200%2C%204%2C%2014%2C%2010%2C%200%2C%202%2C%200%2C%200%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0%2C%200%2C%200%2C%200%2C%200%2C%202%2C%200%2C%201%2C%206%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B8%2C%2011%2C%200%2C%200%2C%200%2C%200%2C%201%2C%200%2C%207%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B0%2C%200%2C%202%2C%200%2C%200%2C%200%2C%206%2C%207%2C%200%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20return%20(graph%2C)%0A%0A%0A%40app.function%0Adef%20dijkstra(g%2Csource)%3A%0A%0A%0A%20%20%20%20%23Helper%20function%20that%20finds%20the%20closest%20node%20that%20is%20not%20still%20visited%20%0A%20%20%20%20def%20minDistance(dist%2C%20visited%2Cg)%3A%0A%0A%20%20%20%20%20%20%20%20minDist%20%3D%2010000%0A%0A%20%20%20%20%20%20%20%20for%20v%20in%20range(len(g))%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20dist%5Bv%5D%20%3C%20minDist%20and%20visited%5Bv%5D%20%3D%3D%20False%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20minDist%20%3D%20dist%5Bv%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20min_index%20%3D%20v%0A%0A%20%20%20%20%20%20%20%20return%20min_index%0A%0A%0A%40app.cell%0Adef%20_(graph)%3A%0A%20%20%20%20dijkstra(graph%2C0)%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Final%20Task%3A%0A%20%20%20%20Re-use%20the%20code%20from%20previous%20weeks%20(in%20particular%2C%20where%20we%20visualised%20trees%20like%20Binary%20Search%20or%20Merge%20Sort)%20to%20visualise%20the%20traversal%20of%20a%20graph.%20Your%20code%20should%20allow%20the%20user%20to%20show%20in%20a%20dropdown%20menu%20between%20BFS%20and%20DFS.%20then%2C%20the%20code%20would%20iterate%20every%20time%20the%20user%20presses%20a%20%60%60%60Next%60%60%60%20button.%20The%20visualisation%20should%20show%20nodes%20that%20have%20been%20visited%20in%20a%20different%20colour%20than%20the%20not%20visited.%0A%0A%20%20%20%20%23%23%23%20Extra%20task%20(not%20compulsory)%3A%0A%20%20%20%20-%20Add%20a%20third%20colour%20to%20the%20node%20that%20is%20currently%20being%20visited.%0A%20%20%20%20-%20Use%20the%20%60%60%60mo.refresh()%60%60%60%20function%20to%20create%20an%20automated%20animation%2C%20instead%20of%20the%20user%20pressing%20each%20time%20for%20the%20next%20iteration.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo%2C%20nx%2C%20plt)%3A%0A%20%20%20%20def%20build_graph(tree%2C%20step)%3A%0A%20%20%20%20%20%20%20%20G%20%3D%20nx.DiGraph()%0A%20%20%20%20%20%20%20%20for%20entry%20in%20tree%5B%3Astep%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20len(entry)%20%3D%3D%204%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20node%2C%20parent%2C%20arr%2C%20is_path%20%3D%20entry%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20node%2C%20parent%2C%20arr%20%3D%20entry%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20is_path%20%3D%20False%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20G.add_node(node%2C%20label%3Dstr(arr)%2C%20is_path%3Dis_path)%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20parent%20is%20not%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20G.add_edge(parent%2C%20node)%0A%20%20%20%20%20%20%20%20return%20G%0A%0A%0A%0A%0A%0A%20%20%20%20def%20hierarchy_pos(G%2C%20root%3DNone%2C%20width%3D1.%2C%20vert_gap%3D0.2%2C%20vert_loc%3D0%2C%20xcenter%3D0.5)%3A%0A%0A%20%20%20%20%20%20%20%20if%20not%20nx.is_tree(G)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20raise%20TypeError(%22hierarchy_pos%20only%20works%20for%20trees.%22)%0A%0A%20%20%20%20%20%20%20%20if%20root%20is%20None%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20root%20%3D%20next(n%20for%20n%2Cd%20in%20G.in_degree()%20if%20d%3D%3D0)%20%20%23%20find%20node%20with%20in-degree%200%0A%0A%20%20%20%20%20%20%20%20def%20_hierarchy_pos(G%2C%20node%2C%20left%2C%20right%2C%20vert_loc%2C%20pos)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20children%20%3D%20list(G.successors(node))%0A%20%20%20%20%20%20%20%20%20%20%20%20pos%5Bnode%5D%20%3D%20((left%20%2B%20right)%20%2F%202%2C%20vert_loc)%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20len(children)%20!%3D%200%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dx%20%3D%20(right%20-%20left)%20%2F%20len(children)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nextx%20%3D%20left%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20child%20in%20children%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_hierarchy_pos(G%2C%20child%2C%20nextx%2C%20nextx%20%2B%20dx%2C%20vert_loc%20-%20vert_gap%2C%20pos)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nextx%20%2B%3D%20dx%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20pos%0A%0A%20%20%20%20%20%20%20%20return%20_hierarchy_pos(G%2C%20root%2C%200%2C%20width%2C%20vert_loc%2C%20%7B%7D)%0A%0A%0A%20%20%20%20def%20draw_tree(G)%3A%0A%20%20%20%20%20%20%20%20pos%20%3D%20hierarchy_pos(G)%0A%20%20%20%20%20%20%20%20labels%20%3D%20nx.get_node_attributes(G%2C%20%22label%22)%0A%0A%20%20%20%20%20%20%20%20node_colors%20%3D%20%5B%5D%0A%20%20%20%20%20%20%20%20for%20i%2C%20node%20in%20enumerate(G.nodes)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20data%20%3D%20G.nodes%5Bnode%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20data.get(%22is_path%22%2C%20False)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20node_colors.append(%22deepskyblue%22)%20%20%20%23%20visited%0A%20%20%20%20%20%20%20%20%20%20%20%20elif%20i%20%3D%3D%20max(G.nodes)%3A%20%20%23%20last%20added%20%3D%20current%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20node_colors.append(%22orange%22)%20%20%20%20%20%20%20%20%23%20current%20node%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20node_colors.append(%22lightgray%22)%20%20%20%20%20%23%20unvisited%0A%0A%0A%20%20%20%20%20%20%20%20plt.figure(figsize%3D(6%2C%204))%0A%20%20%20%20%20%20%20%20nx.draw(%0A%20%20%20%20%20%20%20%20%20%20%20%20G%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20pos%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20with_labels%3DTrue%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20labels%3Dlabels%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20font_size%3D6%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20node_size%3D600%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20node_color%3Dnode_colors%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20edgecolors%3D%22black%22%2C%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20plt.axis(%22off%22)%0A%0A%20%20%20%20%20%20%20%20drawM%20%3D%20mo.mpl.interactive(plt.gcf())%0A%20%20%20%20%20%20%20%20return%20drawM%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20start_node_input%20%3D%20mo.ui.text(label%3D%22Start%20Node%22%2C%20value%3D%220%22)%0A%20%20%20%20return%20(start_node_input%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20next_btn%20%3D%20mo.ui.button(label%3D%22Next%20Step%20%E2%96%B6%EF%B8%8F%22)%0A%20%20%20%20return%20(next_btn%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20reset_btn%20%3D%20mo.ui.button(label%3D%22%F0%9F%94%84%20Reset%22)%0A%20%20%20%20return%20(reset_btn%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20get_count%2C%20set_count%20%3D%20mo.state(1)%0A%20%20%20%20return%20get_count%2C%20set_count%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(get_count%2C%20next_btn%2C%20set_count)%3A%0A%20%20%20%20next_btn%0A%20%20%20%20set_count(get_count()%2B1)%0A%20%20%20%20print(get_count())%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(reset_btn%2C%20set_count)%3A%0A%20%20%20%20reset_btn%0A%20%20%20%20set_count(0)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20algorithm_choice%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3D%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Breadth-first%20Search%22%3A%20%22bfs%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Depth-first%20Search%22%3A%20%22dfs%22%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20value%3D%22Breadth-first%20Search%22%2C%20%20%23%20Set%20default%20value%20explicitly%20to%20avoid%20blank%20%0A%20%20%20%20%20%20%20%20label%3D%22Algorithm%22%0A%20%20%20%20)%0A%20%20%20%20return%20(algorithm_choice%2C)%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20adj%2C%0A%20%20%20%20algorithm_choice%2C%0A%20%20%20%20get_count%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20next_btn%2C%0A%20%20%20%20reset_btn%2C%0A%20%20%20%20start_node_input%2C%0A)%3A%0A%20%20%20%20%23%20Access%20the%20dropdown%20value%20to%20force%20marimo%20to%20track%20it%20as%20a%20dependency%0A%20%20%20%20algo%20%3D%20algorithm_choice.value%0A%0A%20%20%20%20%23%20--------------------------%0A%20%20%20%20%23%20BFS%20(actual%20graph%20layout)%0A%20%20%20%20%23%20--------------------------%0A%20%20%20%20if%20algo%20%3D%3D%20%22bfs%22%3A%0A%20%20%20%20%20%20%20%20start%20%3D%20int(start_node_input.value)%0A%0A%20%20%20%20%20%20%20%20steps%20%3D%20record_bfs(adj%2C%20start)%0A%20%20%20%20%20%20%20%20step%20%3D%20min(get_count()%2C%20len(steps))%0A%0A%20%20%20%20%20%20%20%20graph_fig%20%3D%20draw_actual_graph(adj%2C%20steps%2C%20step)%0A%0A%20%20%20%20%20%20%20%20output%20%3D%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%5Balgorithm_choice%2C%20start_node_input%2C%20next_btn%2C%20reset_btn%5D)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(f%22%23%23%23%20BFS%20%E2%80%94%20Step%20%7Bstep%7D%2F%7Blen(steps)%7D%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.mpl.interactive(graph_fig)%2C%0A%20%20%20%20%20%20%20%20%5D)%0A%0A%20%20%20%20%23%20--------------------------%0A%20%20%20%20%23%20DFS%20(actual%20graph%20layout)%0A%20%20%20%20%23%20--------------------------%0A%20%20%20%20else%3A%20%20%23%20dfs%0A%20%20%20%20%20%20%20%20start%20%3D%20int(start_node_input.value)%0A%0A%20%20%20%20%20%20%20%20steps%20%3D%20record_dfs(adj%2C%20start)%0A%20%20%20%20%20%20%20%20step%20%3D%20min(get_count()%2C%20len(steps))%0A%0A%20%20%20%20%20%20%20%20graph_fig%20%3D%20draw_actual_graph(adj%2C%20steps%2C%20step)%0A%0A%20%20%20%20%20%20%20%20output%20%3D%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%5Balgorithm_choice%2C%20start_node_input%2C%20next_btn%2C%20reset_btn%5D)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(f%22%23%23%23%20DFS%20%E2%80%94%20Step%20%7Bstep%7D%2F%7Blen(steps)%7D%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.mpl.interactive(graph_fig)%2C%0A%20%20%20%20%20%20%20%20%5D)%0A%0A%20%20%20%20output%0A%20%20%20%20return%0A%0A%0A%40app.function%0Adef%20record_bfs(adj_list%2C%20start)%3A%0A%0A%20%20%20%20queue%20%3D%20%5Bstart%5D%0A%20%20%20%20discovered%20%3D%20set(%5Bstart%5D)%20%20%20%23%20queued%0A%20%20%20%20visited%20%3D%20set()%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20actually%20visited%0A%20%20%20%20steps%20%3D%20%5B%5D%0A%0A%20%20%20%20while%20queue%3A%0A%20%20%20%20%20%20%20%20current%20%3D%20queue.pop(0)%0A%0A%20%20%20%20%20%20%20%20visited.add(current)%20%20%20%20%23%20only%20NOW%20mark%20as%20visited%0A%0A%20%20%20%20%20%20%20%20%23%20Record%20the%20moment%20we%20VISIT%20the%20node%0A%20%20%20%20%20%20%20%20steps.append((%22visit%22%2C%20current%2C%20visited.copy()))%0A%0A%20%20%20%20%20%20%20%20for%20n%20in%20adj_list%5Bcurrent%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20n%20not%20in%20discovered%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20discovered.add(n)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20queue.append(n)%0A%0A%20%20%20%20return%20steps%0A%0A%0A%40app.function%0Adef%20record_dfs(adj_list%2C%20start)%3A%0A%20%20%20%20visited%20%3D%20set()%0A%20%20%20%20steps%20%3D%20%5B%5D%0A%0A%20%20%20%20def%20dfs(node)%3A%0A%20%20%20%20%20%20%20%20visited.add(node)%0A%0A%20%20%20%20%20%20%20%20%23%20Record%20only%20visit%20events%0A%20%20%20%20%20%20%20%20steps.append((%22visit%22%2C%20node%2C%20visited.copy()))%0A%0A%20%20%20%20%20%20%20%20for%20n%20in%20adj_list%5Bnode%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20n%20not%20in%20visited%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dfs(n)%0A%0A%20%20%20%20dfs(start)%0A%20%20%20%20return%20steps%0A%0A%0A%40app.function%0Adef%20draw_actual_graph(adj_list%2C%20steps%2C%20step_index)%3A%0A%20%20%20%20import%20networkx%20as%20nx%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%0A%20%20%20%20G%20%3D%20nx.Graph()%0A%20%20%20%20for%20node%2C%20neighs%20in%20enumerate(adj_list)%3A%0A%20%20%20%20%20%20%20%20for%20n%20in%20neighs%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20G.add_edge(node%2C%20n)%0A%0A%20%20%20%20%23%20Extract%20visited%20%2B%20current%20node%0A%20%20%20%20action%2C%20current%2C%20visited%20%3D%20steps%5Bstep_index%20-%201%5D%0A%0A%20%20%20%20%23%20Colors%0A%20%20%20%20node_colors%20%3D%20%5B%5D%0A%20%20%20%20for%20node%20in%20G.nodes%3A%0A%20%20%20%20%20%20%20%20if%20node%20%3D%3D%20current%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20node_colors.append(%22orange%22)%20%20%20%20%20%20%20%23%20current%0A%20%20%20%20%20%20%20%20elif%20node%20in%20visited%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20node_colors.append(%22deepskyblue%22)%20%20%23%20visited%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20node_colors.append(%22lightgray%22)%20%20%20%20%23%20not%20visited%0A%0A%20%20%20%20%23%20FIXED%20positions%0A%20%20%20%20pos%20%3D%20%7B%0A%20%20%20%20%20%20%20%200%3A%20(0.5%2C%201.0)%2C%0A%20%20%20%20%20%20%20%201%3A%20(0.2%2C%200.7)%2C%0A%20%20%20%20%20%20%20%202%3A%20(0.3%2C%200.4)%2C%0A%20%20%20%20%20%20%20%203%3A%20(0.7%2C%200.7)%2C%0A%20%20%20%20%20%20%20%204%3A%20(0.8%2C%200.4)%2C%0A%20%20%20%20%7D%0A%0A%20%20%20%20plt.figure(figsize%3D(6%2C%205))%0A%20%20%20%20nx.draw(%0A%20%20%20%20%20%20%20%20G%2C%20pos%2C%0A%20%20%20%20%20%20%20%20with_labels%3DTrue%2C%0A%20%20%20%20%20%20%20%20node_color%3Dnode_colors%2C%0A%20%20%20%20%20%20%20%20node_size%3D900%2C%0A%20%20%20%20%20%20%20%20font_size%3D10%2C%0A%20%20%20%20%20%20%20%20edgecolors%3D%22black%22%0A%20%20%20%20)%0A%20%20%20%20plt.title(f%22Step%20%7Bstep_index%7D%3A%20visiting%20node%20%7Bcurrent%7D%22)%0A%20%20%20%20return%20plt.gcf()%0A%0A%0A%40app.function%0Adef%20traversal_tree(steps)%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Converts%20BFS%2FDFS%20steps%20into%20the%20same%20format%20used%20by%20binary-search%20trees%3A%0A%20%20%20%20(id%2C%20parent%2C%20label%2C%20is_path)%0A%20%20%20%20%22%22%22%0A%20%20%20%20tree%20%3D%20%5B%5D%0A%20%20%20%20parent%20%3D%20None%0A%0A%20%20%20%20for%20i%2C%20(action%2C%20node%2C%20visited)%20in%20enumerate(steps)%3A%0A%20%20%20%20%20%20%20%20label%20%3D%20f%22Node%3A%20%7Bnode%7D%5CnVisited%3A%20%7Blist(visited)%7D%22%0A%20%20%20%20%20%20%20%20is_path%20%3D%20(action%20%3D%3D%20%22visit%22)%0A%0A%20%20%20%20%20%20%20%20tree.append((i%2C%20parent%2C%20label%2C%20is_path))%0A%20%20%20%20%20%20%20%20parent%20%3D%20i%0A%0A%20%20%20%20return%20tree%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20To%20do%3A%20Add%20in%20automatic%20play%20to%20run%20through%20all%20steps%20for%20extra%20task%2C%20use%20next_btn%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20---%0A%20%20%20%20%23%23%20AI%20Use%20%26%20Acknowledgement%0A%0A%20%20%20%20AI%20tools%20(ChatGPT%2C%20GPT-5%20family)%20were%20used%20only%20during%20the%20Final%20Task%20of%20this%20notebook%2C%20and%20solely%20in%20a%20limited%2C%20supportive%20capacity.%0A%0A%20%20%20%20AI%20assistance%20was%20restricted%20to%3A%0A%20%20%20%20-%20High-level%20guidance%20on%20structuring%20an%20interactive%2C%20step-by-step%20visualisation%20of%20graph%20traversal%20within%20a%20Marimo%20notebook.%0A%20%20%20%20-%20Suggestions%20on%20connecting%20UI%20components%20(dropdown%20selection%20between%20BFS%20and%20DFS%2C%20%E2%80%9CNext%E2%80%9D%20and%20%E2%80%9CReset%E2%80%9D%20buttons%2C%20and%20state%20counters)%20to%20traversal%20progression%20logic.%0A%20%20%20%20-%20Clarification%20on%20how%20to%20record%20traversal%20steps%20incrementally%20(e.g.%20storing%20visited%20nodes%20per%20step)%20to%20enable%20controlled%20iteration%20through%20BFS%20and%20DFS.%0A%20%20%20%20-%20Advice%20on%20visually%20differentiating%20node%20states%20using%20colour%20(unvisited%2C%20visited%2C%20currently%20active%20node)%20in%20NetworkX%2FMatplotlib%20plots.%0A%20%20%20%20-%20Minor%20guidance%20on%20maintaining%20consistent%20node%20positioning%20to%20prevent%20layout%20changes%20between%20steps.%0A%20%20%20%20-%20General%20suggestions%20for%20separating%20traversal%20logic%20(recording%20BFS%2FDFS%20steps)%20from%20visualisation%20logic%20to%20improve%20clarity%20and%20maintainability.%0A%0A%20%20%20%20All%20algorithmic%20content%20including%20the%20implementations%20of%20Breadth-First%20Search%20(BFS)%2C%20Depth-First%20Search%20(DFS)%2C%20traversal%20correctness%2C%20adjacency%20representations%2C%20was%20designed%2C%20implemented%2C%20and%20tested%20independently%20by%20me%2C%20based%20on%20lecture%20material%20and%20my%20own%20understanding.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a portal for the data editor to render in -->
+    <div id="portal" data-testid="glide-portal" style="position: fixed; left: 0; top: 0; z-index: 9999"></div>
+    <script data-marimo="true">
+      window.__MARIMO_MOUNT_CONFIG__ = {
+            "filename": "notebook.py",
+            "mode": "read",
+            "version": "0.19.4",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": false, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "compact"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        };
+    </script>
+  </body>
+</html>
